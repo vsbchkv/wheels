@@ -1,0 +1,64 @@
+.company {
+
+  &__container {
+
+    @media screen and (min-width: $desktop) {
+      padding: 3rem 0 4.4rem;
+    }
+  }
+
+  &__subtitle,
+  &__icon {
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 1rem);
+    }
+  }
+
+  &__icon,
+  &__desc {
+    @include margin-center;
+  }
+
+  &__icon {
+
+    @media screen and (max-width: $desktop - 1px) {
+      width: vw($tablet, 6rem);
+      height: vw($tablet, 3.3rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      width: vw($mobile, 4.3rem);
+      height: vw($mobile, 4.3rem);
+
+      @media (orientation: landscape) {
+        width: vw($mobile, 3.1rem);
+        height: vw($mobile, 3.1rem);
+      }
+    }
+  }
+
+  &__desc {
+    max-width: 89.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .125em;
+    line-height: 1.15;
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-width: 100%;
+      font-size: vw($tablet, 1rem);
+      text-align: center;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      font-size: vw($mobile, 1.2rem);
+      font-weight: 400;
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 1rem);
+      }
+    }
+  }
+}

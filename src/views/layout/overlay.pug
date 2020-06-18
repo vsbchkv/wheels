@@ -1,0 +1,16 @@
+include ../helpers/mixins.pug
+.overlay.overlay--disabled
+  .container.overlay__container
+    header.overlay__header
+      +logo('overlay__logo')
+      +menuBtn('overlay')
+    .overlay__content
+      nav.navigation
+        ul.navigation__list
+          -let overlayItems = ['about us', 'products', 'services', 'our team', 'blog', 'contact','faq', 'terms & Conditions', 'something else', 'anything', 'your ideas', 'right here']
+            each item in overlayItems
+              li.navigation__item
+                a.navigation__link(href= '#' disabled)= item
+        -let overlaySocials = ['facebook', 'linkedin', 'instagram', 'twitter']    
+        +social('overlay', overlaySocials)
+    

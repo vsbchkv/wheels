@@ -1,0 +1,14 @@
+extends /layout/intro-layout
+block variables
+  - let title = `wheels`
+  
+block intro
+  include blocks/intro.pug
+  include layout/overlay.pug
+
+block content
+  include blocks/company.pug
+  include blocks/statistic.pug
+  include blocks/products.pug
+  include blocks/team.pug
+  include blocks/social.pug

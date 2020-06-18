@@ -1,0 +1,44 @@
+.social-media {
+  @include list-unstyled;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -.6rem;
+
+  @media screen and (min-width: $desktop) {
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: $desktop - 1px) {
+    margin-top: vw($tablet, -.6rem);
+  }
+
+  &__item {
+    width: 2rem;
+    height: 2rem;
+    margin-top: .6rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      width: vw($tablet, 2rem);
+      height: vw($tablet, 2rem);
+      margin-top: vw($tablet, .6rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      width: vw($mobile, 2rem);
+      height: vw($mobile, 2rem);
+    }
+
+    &:not(:last-of-type) {
+      margin-right: .6rem;
+
+      @media screen and (max-width: $desktop - 1px) {
+        margin-right: vw($tablet, .6rem);
+      }
+    }
+  }
+
+  &__icon {
+    @include picture;
+    fill: $primaryBackground;
+  }
+}

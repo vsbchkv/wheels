@@ -1,0 +1,47 @@
+.title {
+  margin: 0 auto .4rem;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: .125em;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $desktop - 1px) {
+    margin-bottom: vw($tablet, 1rem);
+    font-size: vw($tablet, 2rem);
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    margin-bottom: vw($mobile, 1rem);
+    font-size: vw($mobile, 2rem);
+  }
+}
+
+.title,
+.subtitle {
+  text-align: center;
+}
+
+.subtitle {
+  @include margin-center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .125em;
+  color: $tertiaryText;
+
+  @media screen and (max-width: $desktop - 1px) {
+    font-size: vw($tablet, 1.2rem);
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    font-size: vw($mobile, 1.4rem);
+
+    @media (orientation: landscape) {
+      width: 100%;
+      margin: auto;
+    }
+
+    @media (orientation: portrait) {
+      max-width: 75%;
+    }
+  }
+}

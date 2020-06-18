@@ -1,0 +1,117 @@
+.statistic {
+  background: $secondaryBackground url($background-path+'statistic-bg.jpg') center bottom no-repeat;
+  background-size: cover;
+
+  &__container {
+    max-width: 75rem;
+
+    @media screen and (min-width: $desktop) {
+      padding: 6rem 0 6.5rem;
+    }
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-width: vw($tablet, 75rem);
+    }
+  }
+
+  .title,
+  .subtitle,
+  &__list {
+    color: $secondaryText;
+  }
+
+  .subtitle {
+    margin-bottom: 3.4rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 3.4rem);
+    }
+  }
+
+  &__list {
+    @include list-unstyled;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+    @media screen and (max-width: $desktop - 1px) {
+      flex-direction: column;
+      width: 75%;
+      margin: 0 auto;
+
+      @media screen and (max-width: $tablet - 1px) {
+
+        @media (orientation: landscape) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__item {
+    flex-basis: 33.333%;
+
+    @media screen and (max-width: $desktop - 1px) {
+      display: flex;
+      align-items: center;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      & + & {
+        margin-top: vw($mobile, 1rem);
+      }
+
+      @media (orientation: portrait) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__counter,
+  &__desc {
+    font-weight: 600;
+
+    @media screen and (max-width: $desktop - 1px) {
+      flex-basis: 50%;
+    }
+  }
+
+  &__counter {
+    margin-bottom: .5rem;
+    font-size: 4.8rem;
+    letter-spacing: .13em;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: 0;
+      font-size: vw($tablet, 4.8rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      font-size: vw($mobile, 5rem);
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 2.5rem);
+      }
+    }
+  }
+
+  &__desc {
+    max-width: 15.6rem;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-width: 100%;
+      margin: 0;
+      font-size: vw($tablet, 1.6rem);
+      text-align: left;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      font-size: vw($mobile, 1.4rem);
+    }
+  }
+}

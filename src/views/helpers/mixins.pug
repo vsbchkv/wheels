@@ -1,0 +1,32 @@
+mixin social(className, items)
+  ul.social-media(class=`social-media ${className}__social-media`)
+    each item in items
+      li.social-media__item
+        a.social-media__link(href= '#' aria-label=`link to our ${item}`)
+          svg(class=`social-media__icon social-media__${item}`)
+            use(xlink:href=`#${item}`)
+
+mixin logo(className)
+  span.logo(class=className)
+    a.logo__link(href='#') wheels
+
+mixin menuBtn(className)
+  button(type='button' class=`menu-btn ${className}__btn` aria-label='menu button')
+    span.menu-btn__text Menu
+    .menu-btn__inner
+      span.menu-btn__line
+
+mixin navigation(className, items)
+  nav(class=`navigation ${className}__nav`)
+    ul(class='navigation__list')
+      each item in items
+        li.navigation__item
+          a.navigation__link(href= '#')= item
+
+mixin product(name, image, price)
+  li.products__item
+    .products__image
+      img.products__pic(src=`assets/media/images/products/${image}` alt=`${name} bicycle photo` loading='lazy')
+    h4.products__name= name
+    p.products__price= '$'+price
+    a.products__link(href='#') Learn more

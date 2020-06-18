@@ -1,0 +1,69 @@
+.header {
+  background-color: $primaryBackground;
+  box-shadow: .1rem .1rem 1.8rem rgba(0, 0, 0, .16);
+
+  @media screen and (max-width: $tablet - 1px) {
+    display: none;
+  }
+
+  .logo {
+    line-height: 1;
+  }
+
+  &__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 1.5rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      padding: vw($tablet, 1rem) vw($tablet, 6rem);
+    }
+  }
+
+  &__nav {
+    width: 67.6%;
+
+    @media screen and (max-width: $desktop - 1px) and (min-width: $tablet) {
+      width: 75%;
+    }
+  }
+
+  .navigation__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    letter-spacing: .116em;
+
+    @media screen and (max-width: $desktop - 1px) {
+      font-size: vw($tablet, 1.2rem);
+    }
+  }
+
+  .navigation__item {
+
+    @media screen and (min-width: $desktop) {
+      @include arrows;
+    }
+  }
+
+  .navigation__item:not(:last-of-type) {
+    margin-right: 1.5rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-right: vw($tablet, 1.5rem);
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    z-index: 8;
+    width: 100%;
+
+    & + section {
+      margin-top: 5.5rem;
+    }
+  }
+}

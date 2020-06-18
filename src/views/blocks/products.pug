@@ -1,0 +1,17 @@
+section.products
+  .container.products__container
+    h2.title.products__title featured products
+    p.subtitle.products__subtitle Your chance to shine
+
+    -
+      const products = [
+        {name: 'Orangez', image: 'orange_bike.jpg', price: 399},
+        {name: 'green devil', image: 'tour.jpg', price: 399},
+        {name: 'blue lagoon', image: 'blue_bike.jpg', price: 399},
+        {name: 'pink lady', image: 'pink_bike.jpg', price: 399},
+        {name: 'purple rain', image: 'purple_bike.jpg', price: 399},
+        {name: 'the mist', image: 'grey_bike.jpg', price: 399},
+      ]
+    ul.products__list
+      each product in products
+        +product(product.name, product.image, product.price)

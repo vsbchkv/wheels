@@ -1,0 +1,76 @@
+.social {
+
+  &__container {
+
+    @media screen and (min-width: $desktop) {
+      padding: 4.1rem 2rem 3.8rem;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 3.6rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 3.6rem);
+    }
+  }
+
+  &__list {
+    @include list-unstyled;
+    display: flex;
+    margin-bottom: 3.9rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      flex-wrap: wrap;
+      margin-bottom: vw($tablet, 4rem);
+    }
+  }
+
+  &__item {
+    width: 50%;
+    max-height: 25.6rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-height: (100vw - (vw($tablet, 6rem) * 2)) / 2;
+    }
+
+    @media screen and (max-width: $tablet - 1px) and
+      (orientation: portrait) {
+      width: 100%;
+      max-height: 100vw - (vw($mobile, 2rem) * 2);
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+  }
+
+  &__pic {
+    @include bg-image;
+  }
+
+  &__follow {
+    margin: 0 auto;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: .125em;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $desktop - 1px) {
+      font-size: vw($tablet, 1.6rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      font-size: vw($mobile, 1.6rem);
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 1.2rem);
+      }
+    }
+
+    & > a {
+      text-decoration: underline;
+    }
+  }
+}

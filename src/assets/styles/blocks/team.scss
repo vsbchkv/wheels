@@ -1,0 +1,188 @@
+.team {
+  background-color: $tertiaryBackground;
+
+  &__container {
+
+    @media screen and (min-width: $desktop) {
+      padding: 3rem 0 3.6rem;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 3.5rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 3.5rem);
+    }
+  }
+
+  &__list {
+    @include list-unstyled;
+    display: grid;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 79.2rem;
+    margin: 0 auto;
+    text-align: center;
+    grid-template-columns: repeat(3, 14.5rem);
+    grid-row-gap: 2.5rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-width: 100%;
+      grid-template-columns: repeat(auto-fit, vw($tablet, 14.5rem));
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      @media (orientation: portrait) {
+        justify-content: center;
+        grid-template-columns: 100%;
+        grid-row-gap: vw($mobile, 3rem);
+      }
+
+      @media (orientation: landscape) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: vw($mobile, 1.5rem);
+      }
+    }
+
+    @supports not (display: grid) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    text-transform: uppercase;
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      @media (orientation: portrait) {
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        grid-column-gap: vw($mobile, 1rem);
+      }
+    }
+
+    @supports not (display: grid) {
+      flex-basis: 14.5rem;
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-basis: vw($tablet, 14.5rem);
+      }
+
+      @media screen and (max-width: $tablet - 1px) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: vw($mobile, 15rem);
+
+        @media (orientation: portrait) {
+          flex-basis: 100%;
+        }
+      }
+
+      &:not(:nth-child(-n + 3)) {
+        margin-top: 2.5rem;
+      }
+    }
+
+    &:not(:first-of-type) {
+
+      @supports not (display: grid) {
+
+        @media screen and (max-width: $tablet - 1px) and
+          (orientation: portrait) {
+          margin-top: vw($mobile, 3rem);
+        }
+      }
+    }
+  }
+
+  &__image {
+    height: 14.5rem;
+    margin-bottom: 1.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media screen and (max-width: $desktop - 1px) {
+      width: vw($tablet, 14.5rem);
+      height: vw($tablet, 14.5rem);
+      margin-bottom: vw($tablet, 1.8rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      @media (orientation: landscape) {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @media (orientation: portrait) {
+        width: vw($mobile, 15rem);
+        height: vw($mobile, 15rem);
+        margin-bottom: 0;
+        grid-row: span 2;
+      }
+    }
+  }
+
+  &__pic {
+    @include bg-image;
+  }
+
+  &__name {
+    margin-bottom: .7rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .135em;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, .7rem);
+      font-size: vw($tablet, 2rem);
+    }
+  }
+
+  &__job {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: .125em;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+
+    @media screen and (max-width: $desktop - 1px) {
+      font-size: vw($tablet, 1.2rem);
+    }
+  }
+
+  &__name,
+  &__job {
+
+    @media screen and (max-width: $desktop - 1px) {
+      width: 100%;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      @media (orientation: portrait) {
+        align-self: center;
+        font-size: vw($mobile, 1.8rem);
+      }
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 1rem);
+      }
+    }
+
+    @supports not (display: grid) {
+
+      @media screen and (max-width: $tablet - 1px) and
+        (orientation: portrait) {
+        width: 55%;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: vw($mobile, 1rem);
+      }
+    }
+  }
+}

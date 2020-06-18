@@ -1,0 +1,51 @@
+@keyframes scroll {
+
+  from {
+    transform: translateY(88%);
+  }
+
+  25% {
+    transform: translateY(25%);
+  }
+
+  50% {
+    transform: translateY(25%);
+  }
+
+  to {
+    transform: translateY(88%);
+  }
+}
+
+@keyframes intro--right {
+
+  from {
+    transform: translateX(100500px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes intro--left {
+
+  from {
+    transform: translateX(-100500px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade {
+
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: .6;
+  }
+}

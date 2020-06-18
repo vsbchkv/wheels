@@ -1,0 +1,180 @@
+.footer {
+  background-color: $secondaryBackground;
+  color: $secondaryText;
+
+  &__container {
+    max-width: 90rem;
+
+    @media screen and (min-width: $desktop) {
+      padding: 3.5rem 0;
+    }
+
+    @media screen and (max-width: $desktop - 1px) {
+      max-width: 100%;
+    }
+  }
+
+  .logo {
+    margin: 0 auto 8.7rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 4rem);
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: 27.5% 29.6% 21.1% auto;
+    grid-row-gap: .6rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: vw($tablet, 2rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @supports not (display: grid) {
+      display: flex;
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-wrap: wrap;
+        grid-row-gap: 0;
+      }
+    }
+  }
+
+  &__links {
+    padding-right: .7rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      padding-right: 0;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      text-align: center;
+
+      &:nth-of-type(3) {
+        margin-top: vw($mobile, 2.5rem);
+        grid-row: span 2;
+        grid-column: 1 / -1;
+      }
+    }
+
+    @supports not (display: grid) {
+      flex-shrink: 0;
+
+      @media screen and (min-width: $desktop) {
+
+        &:first-of-type {
+          flex-basis: 27.5%;
+        }
+
+        &:nth-of-type(2) {
+          flex-basis: 29.6%;
+        }
+
+        &:nth-of-type(3) {
+          flex-basis: 21.1%;
+        }
+      }
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-basis: 33.333%;
+        flex-grow: 1;
+      }
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  &__heading {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: .125em;
+    text-transform: uppercase;
+  }
+
+  &__nav {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    grid-row-start: 2;
+  }
+
+  &__heading,
+  &__nav {
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, 2rem);
+      font-size: vw($tablet, 1.2rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      font-size: vw($mobile, 1.2rem);
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, .8rem);
+      }
+    }
+  }
+
+  .navigation__item + .navigation__item {
+    margin-top: .5rem;
+  }
+
+  .navigation__link,
+  .social-media__link {
+
+    @media screen and (min-width: $desktop) {
+      @include underline(.1rem);
+    }
+  }
+
+  .social-media {
+
+    @media screen and (max-width: $tablet - 1px) {
+      justify-content: space-around;
+      max-width: 75%;
+      margin: 0 auto;
+    }
+  }
+
+  &__map {
+    opacity: .3;
+
+    @media screen and (max-width: $desktop - 1px) {
+      opacity: 1;
+      grid-row: 2 / 2;
+      grid-column: 2 / -1;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      display: none;
+    }
+
+    @supports not (display: grid) {
+      flex-basis: 66.666%;
+      margin-top: vw($tablet, 2rem);
+      margin-left: auto;
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-basis: 50%;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:hover,
+    &:not(:hover) {
+      transition: opacity .3s ease-in-out;
+    }
+  }
+}

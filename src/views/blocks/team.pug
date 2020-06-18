@@ -1,0 +1,18 @@
+section.team
+  .container.team__container
+    h2.title.team__title meet the team
+    p.subtitle.team__subtitle People who make the magic happen
+    -
+      const team = [
+        {name: 'ian', image: 'ian.jpg', job: 'Founder, CEO'},
+        {name: 'sarah', image: 'sarah.jpg', job: 'designer'},
+        {name: 'juan', image: 'tour.jpg', job: 'office wizard'},
+      ]
+    ul.team__list
+      - const companyName = 'wheels'
+      each person in team
+        li.team__item
+          .team__image
+            img.team__pic(src=`assets/media/images/team/${person.image} ` alt= `photo of ${person.name.toLowerCase()}, ${companyName} company ${person.job.toLowerCase()}` loading='lazy')
+          h4.team__name= person.name
+          p.team__job= person.job

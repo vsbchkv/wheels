@@ -1,0 +1,13 @@
+.navigation {
+
+  &__list {
+    @include list-unstyled;
+  }
+
+  &__item {
+    position: relative;
+    z-index: 8;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

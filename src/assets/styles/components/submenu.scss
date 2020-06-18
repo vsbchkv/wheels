@@ -1,0 +1,18 @@
+.submenu {
+  position: absolute;
+  left: -2rem;
+  z-index: 7;
+  width: 20rem;
+  height: 0;
+  background-color: $primaryBackground;
+  overflow: hidden;
+  @include list-unstyled;
+
+  .navigation__item {
+    z-index: 7;
+  }
+
+  .navigation__item + .navigation__item {
+    margin-top: 2rem;
+  }
+}

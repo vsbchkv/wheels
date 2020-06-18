@@ -1,0 +1,20 @@
+footer.footer
+  .container.footer__container
+    +logo('footer__logo')
+    .footer__box
+      .footer__links
+        p.footer__heading quick links
+        - items = ['about us', 'products', 'services', 'our team', 'blog', 'contact']
+          +navigation('footer', items)
+      .footer__links
+        p.footer__heading quick links2
+        - items = ['faq', 'terms & Conditions', 'something else', 'anything', 'your ideas', 'right here']
+          +navigation('footer', items)
+      .footer__links
+        p.footer__heading let’s get social!
+        - let socialMedia = ['facebook', 'linkedin', 'instagram', 'twitter']
+        +social('footer', socialMedia)
+      .footer__map
+        iframe(title='our location on google maps' src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1922.8588130718472!2d82.92039601568942!3d55.03134617902799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1589893159339!5m2!1sru!2sru" 
+        width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0")
+      

@@ -1,0 +1,130 @@
+.menu-btn {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: .165em;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $desktop - 1px) {
+    font-size: vw($tablet, 2rem);
+  }
+
+  @media screen and (max-width: $tablet - 1px) {
+    position: fixed;
+    right: vw($mobile, 3rem);
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: vw($mobile, 3rem);
+    height: vw($mobile, 3rem);
+
+    @media (orientation: landscape) {
+      width: vw($mobile, 2rem);
+      height: vw($mobile, 2rem);
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+
+    &:hover {
+
+      .menu-btn__inner::before,
+      .menu-btn__inner::after {
+        width: 30%;
+        transition: width .3s ease-in;
+      }
+    }
+  }
+
+  &__text {
+
+    @media screen and (max-width: $tablet - 1px) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 1.3rem;
+    height: 1.3rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      width: vw($tablet, 1.7rem);
+      height: vw($tablet, 1.7rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      width: vw($mobile, 2rem);
+      height: vw($mobile, 2rem);
+
+      @media (orientation: landscape) {
+        width: vw($mobile, 1.2rem);
+        height: vw($mobile, 1.2rem);
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      width: 100%;
+      transition: width .3s ease-out;
+      box-shadow: inherit;
+    }
+
+    &::before,
+    &::after,
+    .menu-btn__line {
+      position: absolute;
+      display: block;
+      height: .2rem;
+      background-color: currentColor;
+    }
+  }
+
+  &__line {
+    width: 100%;
+  }
+
+  &:not(.menu-btn--active) {
+
+    .menu-btn__inner::before {
+      top: 0;
+    }
+
+    .menu-btn__inner::after {
+      bottom: 0;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      .menu-btn__line,
+      .menu-btn__inner::before,
+      .menu-btn__inner::after {
+        box-shadow: 0 0 0 .1rem #000;
+      }
+    }
+  }
+
+  &--active {
+
+    .menu-btn__inner {
+
+      .menu-btn__line {
+        height: 0;
+        box-shadow: none;
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

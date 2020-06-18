@@ -1,0 +1,134 @@
+// hover, focus and active-modificator styles
+@mixin hover-focus {
+
+  &:hover,
+  &:focus,
+  &--active {
+    @content;
+  }
+}
+
+// reset list styles
+@mixin list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// horizontal block alignment
+@mixin margin-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// sets up max-width and padding of the element without alignment
+@mixin container($max-width, $padding) {
+  width: 100%;
+  max-width: $max-width;
+  padding: $padding;
+}
+
+// sets the maximum number of text lines before text-ovefflow
+@mixin multiline-overflow($font-size, $lines, $lineHeight) {
+  display: -webkit-box;
+  max-height: $lineHeight * $lines;
+  font-size: $font-size;
+  line-height: $lineHeight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+}
+
+// image fills the container and maintains aspect ratio
+@mixin bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// sets image size to max height or width and keeps aspect ratio
+@mixin picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@mixin triangle {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 12px solid currentColor;
+}
+
+@mixin arrows {
+
+  &::before,
+  &::after {
+    @include triangle;
+    top: 50%;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+
+    &::before {
+      left: calc(100% + .3rem);
+      opacity: 1;
+      transition: left .35s ease-out, opacity .15s ease-out;
+      animation: fade .8s .2s infinite;
+    }
+
+    &::after {
+      left: calc(100% + 1rem);
+      transition: left .3s ease-out, opacity .2s ease-out;
+      animation: fade .8s .3s infinite;
+    }
+  }
+}
+
+@mixin underline($lineHeight) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    z-index: 8;
+    width: 0;
+    height: $lineHeight;
+    background-color: currentColor;
+    transition: width .5s;
+  }
+
+  &:hover::before {
+    width: 100%;
+    transition: width .25s;
+  }
+}
+
+// rem to vw
+@function strip-units($remVal) {
+  @return $remVal / ($remVal * 0 + 1);
+}
+
+@function vw($base, $remVal) {
+  @if not unitless($remVal) {
+    $remVal: strip-units($remVal);
+  }
+
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($remVal * 10 / $base) * 100vw;
+}

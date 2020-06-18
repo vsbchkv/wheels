@@ -1,0 +1,139 @@
+.products {
+
+  &__item {
+    padding: 0 .7rem;
+    text-align: center;
+
+    @media screen and (max-width: $desktop - 1px) {
+      padding: 0 vw($tablet, .7rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+
+      @media (orientation: portrait) {
+        padding: 0;
+      }
+    }
+
+    @supports not (display: grid) {
+      flex-basis: 33.333%;
+      margin-top: 1.9rem;
+
+      @media screen and (max-width: $desktop - 1px) {
+        flex-basis: 50%;
+        margin-top: vw($tablet, 1.9rem);
+      }
+
+      @media screen and (max-width: $tablet - 1px) {
+        flex-basis: 100%;
+        margin-top: vw($mobile, 3rem);
+
+        @media (orientation: landscape) {
+          flex-basis: 50%;
+          margin-top: vw($mobile, 1.5rem);
+        }
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 19.7rem;
+    margin-bottom: .5rem;
+
+    @media screen and (max-width: $desktop - 1px) {
+      height: vw($tablet, 20rem);
+      margin-bottom: vw($tablet, .5rem);
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      height: vw($mobile, 32rem);
+      margin-bottom: vw($mobile, 1.5rem);
+
+      @media (orientation: landscape) {
+        height: vw($mobile, 15.5rem);
+        margin-bottom: vw($mobile, .5rem);
+      }
+    }
+  }
+
+  &__pic {
+    @include picture;
+  }
+
+  &__name {
+    margin-bottom: .2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .125em;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, .2rem);
+      font-size: vw($tablet, 1.6rem);
+    }
+  }
+
+  &__price {
+    margin-bottom: .4rem;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: .113em;
+
+    @media screen and (max-width: $desktop - 1px) {
+      margin-bottom: vw($tablet, .5rem);
+      font-size: vw($tablet, 2rem);
+    }
+  }
+
+  &__pic,
+  &__name,
+  &__price {
+
+    @media screen and (max-width: $tablet - 1px) {
+      margin-bottom: vw($mobile, 1rem);
+      font-size: vw($mobile, 2rem);
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 1.2rem);
+      }
+    }
+  }
+
+  &__link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: .135em;
+    text-decoration: underline;
+
+    @media screen and (max-width: $desktop - 1px) {
+      display: inline-block;
+      padding: vw($tablet, .5rem) vw($tablet, 1rem);
+      font-size: vw($tablet, 1.2rem);
+      border: .1rem solid $secondaryBorder;
+      border-radius: .3rem;
+    }
+
+    @media screen and (max-width: $tablet - 1px) {
+      padding: vw($mobile, 1rem) vw($mobile, 2rem);
+      font-size: vw($mobile, 1.5rem);
+      color: $secondaryText;
+      background-color: $secondaryBackground;
+      text-decoration: none;
+
+      @media (orientation: portrait) {
+        width: 50%;
+      }
+
+      @media (orientation: landscape) {
+        font-size: vw($mobile, 1.2rem);
+      }
+    }
+
+    &:hover {
+      color: $tertiaryText;
+      transition: color .2s;
+    }
+  }
+}
