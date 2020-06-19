@@ -3,7 +3,7 @@ Wheels
 
 Тестовый проект по верстке.
 
-Демо https://vsbchkv.github.io/wheels/dist/
+Демо [https://vsbchkv.github.io/wheels/dist/](https://vsbchkv.github.io/wheels/dist/)
 
 Использованы: Препроцессоры Pug, SCSS, постпроцессор PostCSS, Vanilla JS, Webpack 4.
 
