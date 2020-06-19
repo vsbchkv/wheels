@@ -129,6 +129,7 @@ module.exports = (env, argv) => {
         sourceMap: true
       }),
       new ImageminPlugin({
+        disable: !isProd,
         pngquant: ({quality: 70 - 100}),
         plugins: [
           imageminMozjpeg (
