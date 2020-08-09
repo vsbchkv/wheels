@@ -10,11 +10,11 @@ let currentScroll = document.documentElement.scrollTop;
   window.onscroll = () => {
     let currentScroll = document.documentElement.scrollTop;
     scrollIconFade(currentScroll);
-    sickyHeader(currentScroll);
+    stickyHeader(currentScroll);
   };
 };
 
-function sickyHeader(currentScroll) {
+function stickyHeader(currentScroll) {
   if (currentScroll >= windowHeight) {
     const headerHeight = header.clientHeight;
     header.classList.add('header--fixed');
